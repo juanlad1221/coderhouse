@@ -1,0 +1,10 @@
+.counter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(245, 157, 42);
+}
+
+.ancho{
+    width: 10%;
+}
