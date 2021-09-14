@@ -11,8 +11,8 @@ function App() {
   return (
     <div> 
       <NavBar/>
-      <ItemCounter/>
       
+      <ItemListContainer />
     </div>
   );
 }

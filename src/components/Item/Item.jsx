@@ -26,7 +26,7 @@ export default function Item({dato}) {
     
    
     return(
-    <div className='card'>
+    <div className='card-product'>
         <img src="https://ardiaprod.vteximg.com.br/arquivos/ids/204442-500-500/Alimento-para-Perros-Dogui-Carne-con-Vegetales-27-Kg-_1.jpg?v=637593460873670000" />
         
         <div className='titulo-card'> 
@@ -39,7 +39,7 @@ export default function Item({dato}) {
             <button className='btn btn-warning' onClick={() => handleAddCounter(count)}>+</button>
         </div>
         
-        <button className='btn btn-secondary'>Add</button>
+        <button className='btn btn-secondary btn-anchor'>Add</button>
     </div>
     )
 }

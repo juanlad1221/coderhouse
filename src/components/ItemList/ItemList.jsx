@@ -16,11 +16,15 @@ export default function ItemList() {
       }, [])
    
     return(
-        <div className='d-flex flex-wrap p-5 justify-content-center'>
+        
+        <div className='list-container'>
+           
             {
-            data.map((array) => <Item dato={array}/>)
+            data.map((array, index) => <Item key={index} dato={array}/>)
             }
+            
         </div>
+        
     )
 }
 

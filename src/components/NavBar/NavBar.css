@@ -129,3 +129,10 @@
       color: #ffffff;
     }
   }
+
+  .logo-container{
+    display: flex;
+    width: auto;
+    align-items: center;
+    justify-content: flex-start;
+  }

@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import './ItemCounter.css'
 
-export default function ItemCounter() {
-    const [count, setCount] = useState(0)
-
+export default function ItemCounter({ stock, initial, addOn }) {
+    const [count, setCount] = useState(initial)
+    
     const handleAddCounter = (nro) => {
-        nro = nro + 1
-        setCount(nro)
+        if(count < stock){
+            nro = nro + 1
+            setCount(nro)
+        }else{
+            alert('ERROR: El Stock NO Puede Superarse...')
+        }
     }
     const handleRemoveCounter = (nro) => {
         if (nro > 0) {
@@ -21,10 +25,13 @@ export default function ItemCounter() {
 
     return (
         <div className='container d-flex justify-content-center mt-5'>
-            <div className='counter ancho'>
-                <button className='btn btn-warning' onClick={() => handleRemoveCounter(count)}>-</button>
-                <h5>{count}</h5>
-                <button className='btn btn-warning' onClick={() => handleAddCounter(count)}>+</button>
+            <div className='card'>
+                <div className='counter'>
+                    <button className='btn btn-warning' onClick={() => handleRemoveCounter(count)}>-</button>
+                    <h5>{count}</h5>
+                    <button className='btn btn-warning' onClick={() => handleAddCounter(count)}>+</button>
+                </div>
+                <button className='btn btn-secondary' onClick={()=> addOn(count)}>Add</button>
             </div>
         </div>
     )

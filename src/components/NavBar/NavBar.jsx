@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import './NavBar.css'
-import logo from '../../assets/img/logo.png'
+import logo from '../../assets/img/pet.png'
 import { FaShoppingCart } from "react-icons/fa";
 import { HiLogin } from 'react-icons/hi'
 
@@ -17,9 +17,8 @@ export default function NavBar() {
                 <nav className="navbar" >
                     <div className="nav-container">
 
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <img src={logo} style={{ width: '8%' }} />
-                            <h1>Pet   Life</h1>
+                        <div className='logo-container'>
+                            <img src={logo} style={{ width: '25%', marginTop:'-2%' }} />
                         </div>
 
                         <ul className="nav-menu" >
