@@ -87,7 +87,7 @@
     display: none;
   }
   
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 767px) {
     
     .nav-menu {
       display: flex;
@@ -107,6 +107,7 @@
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 1;
+      
     }
     .nav-item .active {
       color: #ffdd40;
@@ -128,11 +129,18 @@
       cursor: pointer;
       color: #ffffff;
     }
+
+    div .logo{
+      width: 50%;
+    }
+
   }
 
-  .logo-container{
-    display: flex;
-    width: auto;
-    align-items: center;
-    justify-content: flex-start;
+  .logo{
+    width: 28%;
+    margin-top: -2%;
   }
+
+  
+
+  
