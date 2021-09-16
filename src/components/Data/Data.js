@@ -28,7 +28,7 @@ const Products = [
 
 
 
-const DataProducts = new Promise((resolve, reject) => {
+export  const DataProducts = new Promise((resolve, reject) => {
     let status = 200 
     
     if(status === 200){
@@ -40,4 +40,18 @@ const DataProducts = new Promise((resolve, reject) => {
     }
 })
 
-export default DataProducts
+
+
+export const DataProduct = new Promise((resolve, reject) => {
+    let status = 200 
+    
+    if(status === 200){
+        setTimeout(function(){
+            resolve(Products[0])
+        }, 2000)
+    }else{
+        reject('Error')
+    }
+})
+
+

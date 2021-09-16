@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './ItemList.css'
 import Item from '../Item/Item'
-import DataProducts from '../Data/Data'
+import {DataProducts} from '../Data/Data'
 
 
 

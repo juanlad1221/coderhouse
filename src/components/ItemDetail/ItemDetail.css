@@ -1,0 +1,29 @@
+.card-detail{
+    width: 25%;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+.detail-name-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-color: burlywood;
+}
+
+.detail-name-price p{
+    padding-top: 2%;
+}
+
+.detail-description{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 1%;
+}
+
+
