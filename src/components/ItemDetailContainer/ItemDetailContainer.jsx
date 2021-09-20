@@ -17,7 +17,6 @@ export default function ItemDetailContainer() {
         getItems.
         then((resp) => { setData(resp.find(e => e.id === Number(id))) })
         .catch((err) => console.log(err))
-        .finally(()=>{setLoading(false)})
     }, [id])
 
    
