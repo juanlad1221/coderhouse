@@ -24,15 +24,14 @@ export default function ItemCounter({ stock, initial, addOn }) {
     }
 
     return (
-        <div className='container d-flex justify-content-center mt-5'>
-            <div className='card'>
-                <div className='counter'>
-                    <button className='btn btn-warning' onClick={() => handleRemoveCounter(count)}>-</button>
-                    <h5>{count}</h5>
-                    <button className='btn btn-warning' onClick={() => handleAddCounter(count)}>+</button>
-                </div>
-                <button className='btn btn-secondary' onClick={()=> addOn(count)}>Add</button>
-            </div>
+        <>
+        <div className='counter'>
+            <button className='btn btn-warning' onClick={() => handleRemoveCounter(count)}>-</button>
+            <h5>{count}</h5>
+            <button className='btn btn-warning' onClick={() => handleAddCounter(count)}>+</button>
         </div>
+        
+        <button className='btn btn-secondary btn-anchor' onClick={()=> addOn(count)}>Add</button>
+        </>
     )
 }

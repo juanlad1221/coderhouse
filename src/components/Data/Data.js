@@ -1,28 +1,38 @@
 const Products = [
     {
+        id:1,
         name:'Alimento p/Perros',
         price:250,
-        img:''
+        img:'',
+        category:'food'
     },
-    {
+    {   
+        id:2,
         name:'Alimento p/Gatos',
         price:350,
-        img:''
+        img:'',
+        category:'food'
     },
     {
+        id:3,
         name:'Almoadones p/Mascotas',
         price:1550,
-        img:''
+        img:'',
+        category:'food'
     },
     {
-        name:'Bebedero',
+        id:4,
+        name:'Hueso p/roer',
         price:2550,
-        img:''
+        img:'',
+        category:'toys'
     },
     {
-        name:'Correas p/mascotas',
+        id:5,
+        name:'Vestido p/perros',
         price:550,
-        img:''
+        img:'',
+        category:'dress'
     }
 ]
 

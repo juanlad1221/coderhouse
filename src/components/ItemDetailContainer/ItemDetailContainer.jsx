@@ -1,20 +1,32 @@
 import {useState, useEffect} from "react"
+import './ItemDetailContainer.css'
 import ItemDetail from "../ItemDetail/ItemDetail"
-import {DataProduct as getItem} from "../Data/Data"
+import {DataProducts as getItems} from '../Data/Data'
+import { useParams } from "react-router"
+
+
+
 
 
 export default function ItemDetailContainer() {
-    const [data, setData] = useState({})
-
+    const [data, setData] = useState([])
+    const {id} = useParams()
+    
+    
     useEffect(() => {
-        getItem.
-        then((resp) => {setData(resp)})
+        getItems.
+        then((resp) => { setData(resp.find(e => e.id === Number(id))) })
         .catch((err) => console.log(err))
-    }, [])
+        .finally(()=>{setLoading(false)})
+    }, [id])
 
+   
     return (
-        <div>
-            <ItemDetail product={data}/>
+        <div className='ItemDetail-container'>
+            {
+                <ItemDetail product={data}/>
+            }
+            
         </div>
     )
 }
