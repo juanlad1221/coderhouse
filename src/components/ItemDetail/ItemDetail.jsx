@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 import ItemCounter from '../ItemCounter/ItemCounter'
 import './ItemDetail.css'
 import { BsFillCaretLeftFill } from "react-icons/bs";
@@ -7,10 +7,14 @@ import { Link } from 'react-router-dom';
 
 
 export default function ItemDetail(product) {
+    const [btncart, setBtncart] = useState(false)
 
-    function addOn(data) { console.log(data) }
-    console.log(product)
 
+    function addOn(data) {
+        setBtncart(true)
+    }
+    
+   
     return (
         <div className='container d-flex flex-column align-items-center'>
             <div className='card-detail'>
@@ -23,7 +27,20 @@ export default function ItemDetail(product) {
                         <p>{'$' + product.product.price}</p>
                     </div>
 
-                    <ItemCounter initial={0} stock={5} addOn={addOn} />
+                    {
+                        btncart ?
+                            <>
+                                <Link to='/cart'>
+                                    <button className='btn-go-to-cart btn'>Go to Cart</button>
+                                </Link>
+                                <Link to='/'>
+                                    <button className='btn-go-to-cart btn'>Continue Buying</button>
+                                </Link>
+                            </>
+                        :
+                            <ItemCounter initial={0} stock={5} addOn={addOn} />
+                    }
+                        
                 </div>
 
                 <div className='detail-description'>
@@ -38,21 +55,6 @@ export default function ItemDetail(product) {
 
 
             </div>
-
-            {/*<div className='card-movil'>
-
-                <div className='card-detail-2'>
-                    <img src="https://ardiaprod.vteximg.com.br/arquivos/ids/204442-500-500/Alimento-para-Perros-Dogui-Carne-con-Vegetales-27-Kg-_1.jpg?v=637593460873670000" alt="" />
-
-                    <div className='detail-name-price'>
-                        <h5>{product.product.name}</h5>
-                        <p>{'$' + product.product.price}</p>
-                    </div>
-
-                    <ItemCounter initial={0} stock={5} addOn={addOn} />
-                </div>
-
-            </div>*/}
 
         </div>
     )

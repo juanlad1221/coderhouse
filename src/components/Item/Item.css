@@ -6,6 +6,7 @@
         height: auto;
         margin: 2%;
         max-width: 20%;
+        box-shadow: 2px 2px 5px rgb(109, 90, 55);
     }
     
     .card-product img{
@@ -41,6 +42,7 @@
     .card-product{
        margin-top: 10%;
        width: 70%;
+       box-shadow: 2px 2px 5px rgb(109, 90, 55);
     }
     
     .card-product img{
@@ -64,3 +66,6 @@
     }
 }
 
+
+  
+  

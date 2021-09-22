@@ -14,6 +14,7 @@
         background-color: rgb(230, 169, 57);
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
+        box-shadow: 2px 2px 5px rgb(109, 90, 55);
     }
 
     img{
@@ -57,8 +58,14 @@
         height: auto;
     }
 
-    .card-movil{
-        visibility: hidden;
+    .btn-go-to-cart{
+        width: 100%;
+        background-color: gray !important;
+        color: white;
+        margin-top: 2%;
+    }
+    .btn-go-to-cart:hover{
+        color: white;
     }
 }
 
@@ -66,7 +73,7 @@
 
 @media screen and (max-width: 767px) {
     .card-detail{
-        width: 80%;
+        width: 70%;
         height: auto;
         margin-top: 10%;
         display: flex;
@@ -74,6 +81,7 @@
         background-color: rgb(230, 169, 57);
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
+        box-shadow: 2px 2px 5px rgb(109, 90, 55);
     }
 
     img{
@@ -117,6 +125,16 @@
         margin-top: 5%;
         color: white;
         font-size: 20px;
+    }
+
+    .btn-go-to-cart{
+        width: 100%;
+        background-color: gray !important;
+        color: white;
+        margin-top: 2%;
+    }
+    .btn-go-to-cart:hover{
+        color: white;
     }
 
 

@@ -24,33 +24,35 @@ export default function NavBar() {
                             </Link>
                         </div>
 
-                        
+
                         <ul className={click ? "nav-menu" : "nav-menu"}>
                             <li className="nav-item">
-                               <Link to='/'>
-                                   Home
-                               </Link>
+                                <Link to='/'>
+                                    Home
+                                </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to='/category/food'>
-                                   Food
+                                    Food
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <NavLink to='/category/dress' activeClassName='active-link'>
-                                   Dress
+                                    Dress
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <Link to='/category/toys'>
-                                   Toys
+                                    Toys
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <FaShoppingCart />
                             </li>
                             <li className="nav-item">
-                                <HiLogin />
+                                <Link to='/login'>
+                                    <HiLogin />
+                                </Link>
                             </li>
                         </ul>
 
