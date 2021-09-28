@@ -11,6 +11,10 @@
         width: 100%;
         height: auto;
     }
+    
+    .btn-warning:hover{
+        color: black !important;
+    }
 
 }
 

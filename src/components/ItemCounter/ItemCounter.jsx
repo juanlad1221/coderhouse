@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import './ItemCounter.css'
 
+
 export default function ItemCounter({ stock, initial, addOn }) {
     const [count, setCount] = useState(initial)
+    
 
     const handleAddCounter = (nro) => {
         if (count < stock) {
             setCount(nro + 1)
         } else {
-            alert('ERROR: El Stock NO Puede Superarse...')
+            alert('ERROR: Stock Can not Be Exceeded...')
         }
     }
     const handleRemoveCounter = (nro) => {
@@ -16,12 +18,12 @@ export default function ItemCounter({ stock, initial, addOn }) {
             setCount(nro - 1)
         } else {
             setCount(0)
-            alert('ERROR: No Puede haber Cantidad Negativa...')
+            alert('ERROR: There can be no Negative Quantity...')
         }
     }
     const handleAdd = () => {
         if (count === 0) {
-            alert('Error: Debe seleccionar una Cantidad...')
+            alert('ERROR: You must select a Quantity... ')
             return
         } else {
             addOn(count) 
@@ -36,7 +38,7 @@ export default function ItemCounter({ stock, initial, addOn }) {
                 <button className='btn btn-warning' onClick={() => handleAddCounter(count)}><strong>+</strong></button>
             </div>
 
-            <button className='btn btn-secondary btn-anchor' onClick={handleAdd}>Add</button>
+            <button className='btn btn-anchor' onClick={handleAdd}>Add</button>
         </>
     )
 }

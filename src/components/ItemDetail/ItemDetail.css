@@ -8,13 +8,20 @@
     }
 
     .card-detail{
-        width: 70%;
+        width:60%;
+        max-width: 70%;
         height: auto;
         display: flex;
         background-color: rgb(230, 169, 57);
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
         box-shadow: 2px 2px 5px rgb(109, 90, 55);
+    }
+
+    .card-img{
+        width: 70%;
+        max-width: 70%;
+        height: auto;
     }
 
     img{
@@ -60,7 +67,7 @@
 
     .btn-go-to-cart{
         width: 100%;
-        background-color: gray !important;
+        background-color: #cb5d1e !important;
         color: white;
         margin-top: 2%;
     }
@@ -73,7 +80,7 @@
 
 @media screen and (max-width: 767px) {
     .card-detail{
-        width: 70%;
+        width: 60%;
         height: auto;
         margin-top: 10%;
         display: flex;

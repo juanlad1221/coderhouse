@@ -17,6 +17,12 @@
     .btn-anchor{
         width: 100%;
         height: auto;
+        background-color: #cb5d1e;
+        color: white;
+    }
+
+    .btn:hover{
+        color: #ffd151;
     }
     
     .counter{
@@ -63,6 +69,12 @@
     .btn-anchor{
         width: 100%;
         height: auto;
+        background-color: #cb5d1e;
+        color:white;
+    }
+
+    .btn:hover{
+        color: #ffd151;
     }
 }
 

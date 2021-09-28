@@ -1,11 +1,12 @@
 import { useContext } from 'react'
 import './Login.css'
-import { Context } from '../CartContext/CartContext'
+import { CartContext } from '../CartContext/CartContext'
 
 
 export default function Login() {
     //Se trae la data del context
-    const { isLoged, setIsLoged } = useContext(Context)
+    const { isLoged } = useContext(CartContext)
+    
     console.log(isLoged)
     return (
         <div className='container container-login'>

@@ -6,7 +6,7 @@ import './Loading.css'
 export default function Loading() {
     return (
         <>
-            <img src={loading} className='loading' />
+            <img src={loading} className='loading' alt='' />
         </>
     )
 }

@@ -1,55 +1,82 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import './NavBar.css'
 import logo from '../../assets/img/pet.png'
 import { Link, NavLink } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 import { HiLogin } from 'react-icons/hi'
+import { CartContext } from '../CartContext/CartContext';
 
 
 export default function NavBar() {
     const [click, setClick] = useState(false)
+    const [bagde, setBagde] = useState(false)
+    const { items, cantBagde, Bagde } = useContext(CartContext)
 
     const Close = () => setClick(false)
     const handleClick = () => setClick(!click)
+    const handleIconBagde = () => {
+        if (items.length > 0) {
+            setBagde(true)
+        }else{
+            setBagde(false)
+        }
+    }
+
+    
+    useEffect(() => {
+        handleIconBagde()
+        Bagde()
+    }, [items])
+
     return (
         <div>
             <div className={click ? "main-container" : ""} onClick={() => Close()} />
             <div>
-                <nav className="navbar" >
+                <nav className="navbar" onClick={(e)=>e.stopPropagation()}>
                     <div className="nav-container">
 
                         <div className='juta'>
                             <Link to='/'>
-                                <img className='logo' src={logo} />
+                                <img className='logo' src={logo} alt='' />
                             </Link>
                         </div>
 
 
-                        <ul className={click ? "nav-menu" : "nav-menu"}>
+                        <ul className={click ? "nav-menu active" : "nav-menu"}>
                             <li className="nav-item">
-                                <Link to='/'>
+                                <Link to='/' onClick={click ? handleClick : null}>
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/category/food'>
+                                <Link to='/category/food' onClick={click ? handleClick : null}>
                                     Food
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <NavLink to='/category/dress' activeClassName='active-link'>
+                                <NavLink to='/category/dress' onClick={click ? handleClick : null}>
                                     Dress
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link to='/category/toys'>
+                                <Link to='/category/toys' onClick={click ? handleClick : null}>
                                     Toys
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <FaShoppingCart />
+                                <Link to='/cart' onClick={click ? handleClick : null}>
+                                    {
+                                        bagde ?
+                                            <div className='cart-bagde'>
+                                                <FaShoppingCart />
+                                                <span class="badge rounded-pill badge-notification">{cantBagde}</span>
+                                            </div>
+                                            :
+                                            <FaShoppingCart />
+                                    }
+                                </Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item" onClick={click ? handleClick : null}>
                                 <Link to='/login'>
                                     <HiLogin />
                                 </Link>

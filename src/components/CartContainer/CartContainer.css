@@ -1,9 +1,7 @@
-.ItemDetail-container{
+.cart-container{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 5%;
 }
 
-.bt{
-    border: 1px solid blue;
-}

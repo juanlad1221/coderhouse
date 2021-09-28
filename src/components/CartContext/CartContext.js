@@ -1,31 +1,73 @@
-import { createContext, useState, useEffect } from "react";
-//Fuente de dato local
-//import data as getItems from '../Data/Data'
+import { createContext, useState} from "react";
+import {deleteObjectInArrayById, 
+  TotalBuy, 
+  sumValuesInObjectArray} from '../../Helpers/Helpers'
 
 
 
 
 //Se crea el context
-export const Context = createContext();
+export const CartContext = createContext([]);
 
 
 //Componente que devuelve el provider
-const DataContext = ({ children }) => {
+ const CartContextProvider = ({ children }) =>{
 
     //Data a usar en la tabla
-    const [data, setData] = useState([])
+    const [items, setItems] = useState([])
     const [isLoged, setIsLoged] = useState(false)
+    const [loading, setLoading] = useState(true)
+    const [cantBagde, setCantBagde] = useState(0)
+    const [totalBuy, setTotalBuy] = useState(0)
 
-    useEffect(()=>{
-        
-    },[])
+
+    const addItem = (item) =>{
+      setItems([...items, item])
+    }
+
+    const removeItem = (id) =>{
+      if (window.confirm("Do you really want to Delete this Item...")) {
+        setItems(deleteObjectInArrayById(items, id))
+      }
+    }
+
+    const Bagde = ()=>{
+      setCantBagde(sumValuesInObjectArray(items, 'quantity'))
+    }
+
+    const Total = ()=>{
+      setTotalBuy(TotalBuy(items))
+    }
+    
+    const cartEmpty = () =>{
+      if(items.length === 0){
+        return true
+      }else{
+        return false
+      }
+    }
+
+    
   
-  
+
   return (
-    <Context.Provider value={{ isLoged, setIsLoged }}>
+    <CartContext.Provider value={{ 
+    isLoged, 
+    items,
+    cantBagde,
+    loading,
+    totalBuy,
+    Total,
+    setLoading,
+    Bagde,
+    setIsLoged,
+    addItem,
+    removeItem,
+    cartEmpty }}>
         {children}
-    </Context.Provider>
-  );
-};
+    </CartContext.Provider>
+  )
+}
 
-export default DataContext;
+export default CartContextProvider
+
