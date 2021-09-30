@@ -44,4 +44,14 @@ export function TotalBuy(array){
   return ac
 }
 
+export function sumQuantity(array, key, value, toAdd){
+
+  array.forEach(e => {
+    if ( e[key] === value){
+      e.quantity = e.quantity + toAdd
+    }
+  })//end for
+  return array
+}
+
 

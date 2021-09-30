@@ -5,7 +5,7 @@ import Loading from '../Loading/Loading'
 import {DataProducts as getItems} from '../Data/Data'
 import { useParams } from 'react-router'
 import { useContext} from 'react'
-import {CartContext} from '../CartContext/CartContext'
+import {CartContext} from '../../CartContext/CartContext'
 
 
 

@@ -3,7 +3,7 @@ import ItemCounter from '../ItemCounter/ItemCounter'
 import './ItemDetail.css'
 import { BsFillCaretLeftFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
-import { CartContext } from '../CartContext/CartContext'
+import {CartContext} from '../../CartContext/CartContext'
 import { existObjectInArray } from '../../Helpers/Helpers'
 
 
@@ -14,21 +14,17 @@ export default function ItemDetail(product) {
     const { addItem, items } = useContext(CartContext)
 
     function addOn(data) {
-
-        if (!existObjectInArray(items, 'id', product.product.id)) {
-            setBtncart(true)
-            addItem({
+        
+        setBtncart(true)
+        addItem({
                 id: product.product.id,
                 name: product.product.name,
                 price: product.product.price,
                 quantity: data,
                 category: product.product.category,
                 description: ''
-            })
-        } else {
-            alert('ATTENTION: You can not Add more Units of the Product...')
-            return
-        }
+        })
+        
     }
 
 

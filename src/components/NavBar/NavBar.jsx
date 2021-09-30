@@ -3,14 +3,14 @@ import './NavBar.css'
 import logo from '../../assets/img/pet.png'
 import { Link, NavLink } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
-import { HiLogin } from 'react-icons/hi'
-import { CartContext } from '../CartContext/CartContext';
+import { CartContext } from '../../CartContext/CartContext';
 
 
 export default function NavBar() {
     const [click, setClick] = useState(false)
     const [bagde, setBagde] = useState(false)
-    const { items, cantBagde, Bagde } = useContext(CartContext)
+    {/*const [islogged, setIslogged] = useState(false)*/}
+    const { items, cantBagde, Bagde, isLoged, logOut } = useContext(CartContext)
 
     const Close = () => setClick(false)
     const handleClick = () => setClick(!click)
@@ -21,11 +21,13 @@ export default function NavBar() {
             setBagde(false)
         }
     }
+    
 
     
     useEffect(() => {
         handleIconBagde()
         Bagde()
+        
     }, [items])
 
     return (
@@ -77,9 +79,16 @@ export default function NavBar() {
                                 </Link>
                             </li>
                             <li className="nav-item" onClick={click ? handleClick : null}>
-                                <Link to='/login'>
-                                    <HiLogin />
-                                </Link>
+                                {
+                                    isLoged ?
+                                        <Link onClick={logOut} to='/'>
+                                            OUT
+                                        </Link>
+                                    :
+                                        <Link to='/login'>
+                                            In
+                                        </Link>
+                                }
                             </li>
                         </ul>
 

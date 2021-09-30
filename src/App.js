@@ -6,8 +6,8 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartContainer from './components/CartContainer/CartContainer';
 import Login from './components/Login/Login';
-import CartContextProvider from './components/CartContext/CartContext'
-
+import CartContextProvider from './CartContext/CartContext'
+import Pay from './components/Pay/Pay';
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
             <Route exact path='/item/:id' component={ItemDetailContainer} />
             <Route exact path='/cart' component={CartContainer} />
             <Route exact path='/login' component={Login} />
+            <Route exact path='/pay' component={Pay} />
 
           </Switch>
 
