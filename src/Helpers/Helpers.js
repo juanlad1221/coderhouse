@@ -54,4 +54,13 @@ export function sumQuantity(array, key, value, toAdd){
   return array
 }
 
+export function makeOrder(array, name, phone, mail, total){
+  let obj = {}
+  obj.buyer = {name,phone,mail}
+  obj.items = array
+  obj.date = new Date()
+  obj.total = total
+  return obj
+}
+
 

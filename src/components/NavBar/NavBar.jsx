@@ -9,7 +9,6 @@ import { CartContext } from '../../CartContext/CartContext';
 export default function NavBar() {
     const [click, setClick] = useState(false)
     const [bagde, setBagde] = useState(false)
-    {/*const [islogged, setIslogged] = useState(false)*/}
     const { items, cantBagde, Bagde, isLoged, logOut } = useContext(CartContext)
 
     const Close = () => setClick(false)
@@ -78,18 +77,18 @@ export default function NavBar() {
                                     }
                                 </Link>
                             </li>
-                            <li className="nav-item" onClick={click ? handleClick : null}>
+                            {/*<li className="nav-item" onClick={click ? handleClick : null}>
                                 {
                                     isLoged ?
                                         <Link onClick={logOut} to='/'>
-                                            OUT
+                                            Out
                                         </Link>
                                     :
                                         <Link to='/login'>
                                             In
                                         </Link>
                                 }
-                            </li>
+                            </li>*/}
                         </ul>
 
 

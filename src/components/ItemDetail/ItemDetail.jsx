@@ -4,14 +4,14 @@ import './ItemDetail.css'
 import { BsFillCaretLeftFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import {CartContext} from '../../CartContext/CartContext'
-import { existObjectInArray } from '../../Helpers/Helpers'
+
 
 
 
 export default function ItemDetail(product) {
     const [btncart, setBtncart] = useState(false)
     //Extraigo addItem de el context
-    const { addItem, items } = useContext(CartContext)
+    const { addItem} = useContext(CartContext)
 
     function addOn(data) {
         

@@ -1,5 +1,6 @@
 .table-container{
     width: 60%;
+    min-height: 60vh;
 }
 
 table{
@@ -11,11 +12,11 @@ table{
 }
 table th{
     border: 2px solid #cb5d1e;
-    padding: 3%;
+    padding: 1em; 
 }
 table td{
     border: 2px solid #cb5d1e; 
-    padding: 2%;
+    padding: 1em;
 }
 .btn{
     background-color: #cb5d1e;
@@ -54,4 +55,9 @@ table td{
     .btn:hover{
         color:#ffd151
     }
+    .table-container{
+       
+        min-height: 70vh;
+    }
+    
 }

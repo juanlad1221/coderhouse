@@ -1,0 +1,19 @@
+footer{
+    width: 100%;
+    background-color: #cb5d1e;
+    bottom: 0;
+    position: relative;
+    padding: 3%;
+    box-shadow: 2px 2px 5px 5px rgb(247, 166, 18)
+}
+
+@media screen and (max-width: 767px) {
+    footer{
+        width: 100%;
+        background-color: #cb5d1e;
+        bottom: 0;
+        position: relative;
+        padding: 3%;
+        box-shadow: 2px 2px 5px rgb(247, 166, 18)
+    }
+}

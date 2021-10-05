@@ -45,7 +45,7 @@ export const CartContext = createContext([]);
     }
 
     const Total = ()=>{
-      setTotalBuy(TotalBuy(items))
+    setTotalBuy(TotalBuy(items))
     }
     
     const cartEmpty = () =>{
@@ -56,10 +56,17 @@ export const CartContext = createContext([]);
       }
     }
 
-    const cleanCart = () => {
-      if (window.confirm("Do you really want to Delete all Items...")) {
+    const cleanCart = (flag) => {
+      if(flag){
+        if (window.confirm("Do you really want to Delete all Items...")) {
+          setItems([])
+          setTotalBuy(0)
+        }
+      }else{
         setItems([])
+        setTotalBuy(0)
       }
+      
     }
 
     const isInCart = (item) =>{
@@ -82,6 +89,7 @@ export const CartContext = createContext([]);
     cantBagde,
     loading,
     totalBuy,
+    setItems,
     Total,
     setLoading,
     Bagde,
