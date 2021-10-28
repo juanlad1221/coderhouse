@@ -1,83 +1,92 @@
 import './Cart.css'
-import { useContext, useState, useEffect} from 'react'
-import { CartContext } from '../../CartContext/CartContext'
 import Row from '../Row/Row'
 import Loading from '../Loading/Loading'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useContext, useState, useEffect } from 'react'
+import { CartContext } from '../../CartContext/CartContext'
 
 
 export default function Cart() {
-    const {items, removeItem, Total, totalBuy, cartEmpty, cleanCart} = useContext(CartContext)
+    const {items, removeItem, Total, totalBuy, cartEmpty, cleanCart, user } = useContext(CartContext)
     const [loading, setLoading] = useState(true)
     const [showBack, setShowBack] = useState(false)
-    const [url, setUrl] = useState('')
     
+
 
     useEffect(() => {
 
-        //Para el loading
-        setTimeout(()=>{
+        //loading
+        setTimeout(() => {
             setLoading(false)
         }, 2000)
-        
-        
-        if(cartEmpty()){
+
+        //controla el texto no items
+        if (cartEmpty()) {
             setShowBack(true)
-        }else{
+        } else {
             setShowBack(false)
         }
-        
-    },[items])
-    
-    
+    }, [items])
+
+
     return (
-        
-        loading?
-            <Loading/>
-        :
 
-        <div className='table-container' onChange={Total()}>
-            <h1 className='cart-title'>Cart</h1>
+        loading ?
+            <Loading />
+            :
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>CATEGOTY</th>
-                        <th>PRICE</th>
-                        <th>QUANTITY</th>
-                        <th>ACTION</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div className='table-container' onChange={Total()}>
+                <h1 className='cart-title'>Cart</h1>
+
+                <div className='table-layout'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NAME</th>
+                                <th>CATEGOTY</th>
+                                <th>PRICE</th>
+                                <th>QUANTITY</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                items.map((e, index) => <Row key={index} id={e.id} name={e.name} price={e.price} quantity={e.quantity} category={e.category} remove={removeItem} />)
+                            }
+
+                            <tr>
+                                <td className='total'><strong>{`TOTAL: $${totalBuy}`}</strong></td>
+                                {
+                                    showBack?
+                                        <td className='total' colSpan='5'>No items</td>
+                                        :
+                                        <td className='total' colSpan='5'><button onClick={cleanCart} className='btn'>Delete All</button></td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className='button-container'>
+
+
+                    <Link to='/'>
+                        <button className='btn'>Go to Buy...</button>
+                    </Link>
+
                     {
-                        items.map((e,index)=> <Row key={index} id={e.id} name={e.name} price={e.price} quantity={e.quantity} category={e.category} remove={removeItem}/>)
+                        user?
+                            !showBack&&
+                                <Link to='/order'>
+                                    <button className='btn'>Make Order...</button>
+                                </Link>
+                        :
+                            <Link to='/login'>
+                                <button className='btn'>Login...</button>
+                            </Link>
                     }
-                    
-                    <tr>
-                        <td><strong>{`TOTAL: $${totalBuy}`}</strong></td>
-                        {
-                            showBack ?
-                                <td colSpan='5'>No items</td>
-                            :
-                                <td colSpan='5'><button onClick={cleanCart} className='btn'>Delete All</button></td>
-                        }
-                    </tr>
-                </tbody>
-            </table>
- 
-            {
-                showBack ?
-                <Link to='/'>
-                    <button className='btn button-pay'>Go to Buy...</button>
-                </Link>
-                :
-                <Link to='/order'>
-                    <button className='btn button-pay'>Make Order...</button>
-                </Link>
-            }
-            
-        </div>
+                </div>
+
+            </div>
     )
 }

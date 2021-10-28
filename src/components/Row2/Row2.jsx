@@ -5,8 +5,8 @@ export default function Row({key, name, quantity}) {
     
     return (
         <tr key={key}>
-            <td>{name}</td>
-            <td>{quantity}</td> 
+            <td data-label='name'>{name}</td>
+            <td data-label='quantity'>{quantity}</td> 
         </tr>
     )
 }

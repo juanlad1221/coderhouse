@@ -8,7 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import CartContainer from './components/CartContainer/CartContainer';
 import OrderContainer from './components/OrderContainer/OrderContainer';
 import CartContextProvider from './CartContext/CartContext'
-import Pay from './components/Pay/Pay';
+import Login from './components/Login/Login';
 
 
 function App() {
@@ -16,8 +16,6 @@ function App() {
   return (
     <CartContextProvider>
       <BrowserRouter>
-        <div className='div-co'>
-          <div className='div-po'>
           <NavBar />
 
           <Switch>
@@ -27,13 +25,13 @@ function App() {
             <Route exact path='/item/:id' component={ItemDetailContainer} />
             <Route exact path='/cart' component={CartContainer} />
             <Route exact path='/order' component={OrderContainer} />
-            <Route exact path='/pay' component={Pay} />
+            <Route exact path='/login' component={Login} />
 
           </Switch>
 
           <Footer/>
-          </div>
-        </div>
+       
+       
       </BrowserRouter>
     </CartContextProvider>
   );

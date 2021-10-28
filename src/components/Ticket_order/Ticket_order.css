@@ -1,0 +1,18 @@
+.ticket-container{
+    width: 40%;
+    text-align: center;
+    padding: 4% 1%;
+    border: 2px solid #cb5d1e;
+    margin-top: 1%;
+    background-color: burlywood;
+    border-radius: 10px;
+    color:#cb5d1e;
+}
+
+.ticket-container h1{
+    margin-top: 10%;
+}
+
+.ticket-container .btn{
+    margin-top: 4%;
+}

@@ -1,4 +1,6 @@
 import { createContext, useState} from "react";
+import { getAuth} from "firebase/auth";
+import { useAuthState} from 'react-firebase-hooks/auth';
 import {deleteObjectInArrayById, 
   TotalBuy, 
   sumValuesInObjectArray,
@@ -18,10 +20,15 @@ export const CartContext = createContext([]);
     //Data a usar en la tabla
     const [items, setItems] = useState([])
     const [isLoged, setIsLoged] = useState(false)
-    const [loading, setLoading] = useState(true)
     const [cantBagde, setCantBagde] = useState(0)
     const [totalBuy, setTotalBuy] = useState(0)
+    const auth = getAuth();
+    const [user] = useAuthState(auth);
+  
 
+    const logout = () => {
+      auth.signOut();
+    }
 
     const addItem = (item) =>{
 
@@ -78,28 +85,26 @@ export const CartContext = createContext([]);
       setIsLoged(true)
     }
 
-    const logOut = () =>{
-      setIsLoged(false)
-    }
+    
     
   return (
     <CartContext.Provider value={{ 
     isLoged, 
     items,
     cantBagde,
-    loading,
     totalBuy,
+    user,
+    setIsLoged,
     setItems,
     Total,
-    setLoading,
     Bagde,
-    setIsLoged,
     addItem,
     removeItem,
     cartEmpty,
     cleanCart,
     makeLogin,
-    logOut }}>
+    logout,
+     }}>
         {children}
     </CartContext.Provider>
   )

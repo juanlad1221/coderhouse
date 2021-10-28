@@ -5,8 +5,10 @@ import './Loading.css'
 
 export default function Loading() {
     return (
-        <div className='div-load'>
-            <img src={loading} alt='' />
+        <div className='load-container'>
+            <div className='img-loading'>
+                <img src={loading} alt='' />
+            </div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './ItemCounter.css'
 
 
@@ -26,6 +26,8 @@ export default function ItemCounter({ stock, initial, addOn }) {
             alert('ERROR: You must select a Quantity... ')
             return
         } else {
+            console.log(stock)
+            console.log(count)
             addOn(count) 
         }
     }

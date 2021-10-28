@@ -80,6 +80,10 @@
     align-items: center;
   }
 
+  div .logo{
+    width: 28%;
+  }
+
   .bt{
     border: 1px solid blue;
   }
@@ -108,7 +112,7 @@
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 1;
-    
+      padding: 0.5em;
     }
     .nav-item .active {
       color: #ffdd40;

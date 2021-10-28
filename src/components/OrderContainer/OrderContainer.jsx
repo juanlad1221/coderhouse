@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import './OrderContainer.css'
+import { useState, useEffect } from 'react'
 import Order from '../Order/Order'
 import Loading from '../Loading/Loading'
 
@@ -23,10 +23,8 @@ export default function OrderContainer() {
         </div>
         :
         <div className='order-container'>
-            <h1>Make Order</h1>
-            
-            
             <Order/>
         </div>
+
     )
 }

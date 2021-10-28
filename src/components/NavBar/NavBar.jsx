@@ -9,7 +9,7 @@ import { CartContext } from '../../CartContext/CartContext';
 export default function NavBar() {
     const [click, setClick] = useState(false)
     const [bagde, setBagde] = useState(false)
-    const { items, cantBagde, Bagde, isLoged, logOut } = useContext(CartContext)
+    const { items, cantBagde, Bagde, user,logout} = useContext(CartContext)
 
     const Close = () => setClick(false)
     const handleClick = () => setClick(!click)
@@ -21,7 +21,6 @@ export default function NavBar() {
         }
     }
     
-
     
     useEffect(() => {
         handleIconBagde()
@@ -77,18 +76,18 @@ export default function NavBar() {
                                     }
                                 </Link>
                             </li>
-                            {/*<li className="nav-item" onClick={click ? handleClick : null}>
+                            <li className="nav-item">
                                 {
-                                    isLoged ?
-                                        <Link onClick={logOut} to='/'>
-                                            Out
+                                    user ?
+                                        <Link onClick={logout}  to='/'>
+                                            OUT
                                         </Link>
                                     :
                                         <Link to='/login'>
-                                            In
+                                            IN
                                         </Link>
                                 }
-                            </li>*/}
+                            </li>
                         </ul>
 
 

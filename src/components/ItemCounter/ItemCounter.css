@@ -1,22 +1,21 @@
-@media screen and (min-width: 768px) {
 
-    .counter{
+.counter{
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: rgb(245, 157, 42);
-    }
+}
 
-    .btn-anchor{
+.btn-anchor{
         width: 100%;
         height: auto;
-    }
-    
-    .btn-warning:hover{
-        color: black !important;
-    }
-
 }
+    
+.btn-warning:hover{
+        color: black !important;
+}
+
+
 
 @media (max-width: 767px) {
     

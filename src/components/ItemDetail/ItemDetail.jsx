@@ -1,70 +1,77 @@
-import { useState, useContext } from 'react'
-import ItemCounter from '../ItemCounter/ItemCounter'
 import './ItemDetail.css'
-import { BsFillCaretLeftFill } from "react-icons/bs";
+import ItemCounter from '../ItemCounter/ItemCounter'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
-import {CartContext} from '../../CartContext/CartContext'
+import { CartContext } from '../../CartContext/CartContext'
 
 
 
 
 export default function ItemDetail(product) {
     const [btncart, setBtncart] = useState(false)
+
     //Extraigo addItem de el context
-    const { addItem} = useContext(CartContext)
+    const { addItem } = useContext(CartContext)
 
     function addOn(data) {
-        
+
         setBtncart(true)
         addItem({
-                id: product.product.id,
-                name: product.product.name,
-                price: product.product.price,
-                quantity: data,
-                category: product.product.category,
-                description: ''
+            id: product.product.id,
+            name: product.product.name,
+            price: product.product.price,
+            quantity: data,
+            category: product.product.category,
+            description: ''
         })
-        
     }
 
 
     return (
-        <div className='card-detail'>
+        <div className='detail-container'>
 
-            <div className='card-img'>
+            <div className='img-card'>
                 <img src={product.product.img} alt="" />
-
-                <div className='detail-name-price'>
-                    <h5>{product.product.name}</h5>
-                    <p>{'$' + product.product.price}</p>
-                </div>
+                <h1 className='title-img'>{product.product.name}</h1>
+                <h5>{'$' + product.product.price}</h5>
 
                 {
                     btncart ?
                         <>
                             <Link to='/cart'>
-                                <button className='btn-go-to-cart btn'>Finalize Purchase</button>
+                                <button className='btn-go btn'>Finalize Purchase</button>
                             </Link>
                             <Link to='/'>
-                                <button className='btn-go-to-cart btn'>Continue Buying</button>
+                                <button className='btn-go btn'>Continue Buying</button>
                             </Link>
                         </>
                         :
-                        <ItemCounter initial={0} stock={5} addOn={addOn} />
+                        <ItemCounter initial={0} stock={product.product.stock} addOn={addOn} />
                 }
-
             </div>
 
-            <div className='detail-description'>
-                <div className='icon-container'>
-                    <Link to='/'>
-                        <BsFillCaretLeftFill className='icon-detail' />
-                    </Link>
+
+            <div className='description'>
+
+                <p className='text-description'>{product.product.description}</p>
+
+                <div className='select-container'>
+                    <select name="talle">
+                        <option value="value1" selected disabled>Talle</option>
+                        <option value="value2">X</option>
+                        <option value="value3">L</option>
+                    </select>
+
+                    <select className='select2' name="color">
+                        <option value="value1" selected disabled>Color</option>
+                        <option value="value2">Rojo</option>
+                        <option value="value3">Verde</option>
+                    </select>
+
+                    <h5 className='stock-style'>Stock: {product.product.stock}</h5>
                 </div>
 
-                <p className='color-text'>Lorem ipsum dolor, sit amet ere illum velit animi. Tempore, non repellendus minus fugit quidem corporis iusto consequuntur dolorem temporibus commodi ducimus officiis porro!</p>
             </div>
-
 
         </div>
     )
